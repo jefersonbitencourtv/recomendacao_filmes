@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(url="${apithemoviedb.url}", name="TheMovieDbController")
 public interface TheMovieDbClient {
     @GetMapping("/discover/movie")
-    Response getFilmesByGenderSortByPopularity(@RequestParam String api_key, @RequestParam("with_genres") String idGenre, @RequestParam String sort_by);
+    Response getMoviesByGenderSortByPopularity(@RequestParam String api_key, @RequestParam("with_genres") String idGenre, @RequestParam String sort_by);
     @GetMapping("/discover/movie")
-    Response getFilmesByGenderSortByReleaseDate(@RequestParam String api_key, @RequestParam("with_genres") String idGenre, @RequestParam String sort_by);
+    Response getMoviesByGenderSortByReleaseDate(@RequestParam String api_key, @RequestParam("with_genres") String idGenre, @RequestParam String sort_by);
     @GetMapping("/discover/movie")
-    Response getFilmesByGenderSortByVoteAverage(@RequestParam String api_key, @RequestParam("with_genres") String idGenre, @RequestParam String sort_by);
+    Response getMoviesByGenderSortByVoteAverage(@RequestParam String api_key, @RequestParam("with_genres") String idGenre, @RequestParam String sort_by);
 }

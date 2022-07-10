@@ -5,12 +5,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ApiModel(description = "Movie details")
 @Builder
-@ToString
 public class MovieDTO {
     @ApiModelProperty(value="Movie title", required = true)
     private String original_title;

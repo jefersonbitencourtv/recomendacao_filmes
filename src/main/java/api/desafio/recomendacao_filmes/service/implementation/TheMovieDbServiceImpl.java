@@ -32,7 +32,7 @@ public class TheMovieDbServiceImpl implements TheMovieDbService {
     @Override
     public MoviesByGenreDTO getMoviesByGenreSortByPopularity(MovieGenre genre){
         try {
-            Response response = theMovieDbClient.getFilmesByGenderSortByPopularity(apiKey, genre.getId(), "popularity.desc");
+            Response response = theMovieDbClient.getMoviesByGenderSortByPopularity(apiKey, genre.getId(), "popularity.desc");
             if(response.status() != 200){
                 String bodyStr = Util.toString(response.body().asReader(StandardCharsets.UTF_8));
                 TheMovieDbErrorDTO theMovieDbErrorDTO = mapper.readValue(bodyStr, TheMovieDbErrorDTO.class);
@@ -55,7 +55,7 @@ public class TheMovieDbServiceImpl implements TheMovieDbService {
     @Override
     public MoviesByGenreDTO getMoviesByGenreSortByReleaseDate(MovieGenre genre) {
         try {
-            Response response = theMovieDbClient.getFilmesByGenderSortByReleaseDate(apiKey, genre.getId(), "release_date.desc");
+            Response response = theMovieDbClient.getMoviesByGenderSortByReleaseDate(apiKey, genre.getId(), "release_date.desc");
             System.out.println(response);
             if(response.status() != 200){
                 String bodyStr = Util.toString(response.body().asReader(StandardCharsets.UTF_8));
@@ -79,7 +79,7 @@ public class TheMovieDbServiceImpl implements TheMovieDbService {
     @Override
     public MoviesByGenreDTO getMoviesByGenreSortByVoteAverage(MovieGenre genre) {
         try {
-            Response response = theMovieDbClient.getFilmesByGenderSortByVoteAverage(apiKey, genre.getId(), "vote_average.desc");
+            Response response = theMovieDbClient.getMoviesByGenderSortByVoteAverage(apiKey, genre.getId(), "vote_average.desc");
             System.out.println(response);
             if(response.status() != 200){
                 String bodyStr = Util.toString(response.body().asReader(StandardCharsets.UTF_8));

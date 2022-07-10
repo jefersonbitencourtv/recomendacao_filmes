@@ -1,6 +1,5 @@
 package api.desafio.recomendacao_filmes.rest.controller;
 
-import api.desafio.recomendacao_filmes.rest.dto.CityDTO;
 import api.desafio.recomendacao_filmes.rest.dto.MoviesByGenreDTO;
 import api.desafio.recomendacao_filmes.service.implementation.RecommendationsServiceImpl;
 import io.swagger.annotations.Api;
@@ -10,8 +9,6 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 
 @RestController
@@ -50,46 +47,24 @@ public class RecommendationsController {
         this.recommendationsServiceImpl = recommendationsServiceImpl;
 
     }
-
-    @ApiOperation(value="Search movies by popularity, Format:Request Body")
-    @PostMapping("/popularity")
+    @ApiOperation(value="Search movies by popularity")
+    @GetMapping("popularity")
     @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByPopularity(@Valid @RequestBody CityDTO cityDTO){
-        return recommendationsServiceImpl.getByPopularity(cityDTO.getCity());
-    }
-
-    @ApiOperation(value="Search movies by release date, Format:Request Body")
-    @PostMapping("/release_date")
-    @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByReleaseDate(@Valid @RequestBody CityDTO cityDTO){
-        return recommendationsServiceImpl.getByReleaseDate(cityDTO.getCity());
-    }
-
-    @ApiOperation(value="Search movies by vote average, Format:Request Body")
-    @PostMapping("/vote_average")
-    @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByVoteAverage(@Valid @RequestBody CityDTO cityDTO) {
-        return recommendationsServiceImpl.getByVoteAverage(cityDTO.getCity());
-    }
-
-    @ApiOperation(value="Search movies by popularity, Format:Request Param")
-    @PostMapping("/popularity/")
-    @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByPopularity2(@RequestParam("city") String city) {
+    public MoviesByGenreDTO getByPopularity(@RequestParam("city") String city) {
         return recommendationsServiceImpl.getByPopularity(city);
     }
 
-    @ApiOperation(value="Search movies by release date, Format:Request Param")
-    @PostMapping("/release_date/")
+    @ApiOperation(value="Search movies by release date")
+    @GetMapping("release_date")
     @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByReleaseDate2(@RequestParam("city") String city) {
+    public MoviesByGenreDTO getByReleaseDate(@RequestParam("city") String city) {
         return recommendationsServiceImpl.getByReleaseDate(city);
     }
 
-    @ApiOperation(value="Search movies by vote average, Format:Request Param")
-    @PostMapping("/vote_average/")
+    @ApiOperation(value="Search movies by vote average")
+    @GetMapping("vote_average")
     @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByVoteAverage2(@RequestParam("city") String city) {
+    public MoviesByGenreDTO getByVoteAverage(@RequestParam("city") String city) {
         return recommendationsServiceImpl.getByVoteAverage(city);
     }
 }

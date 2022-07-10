@@ -8,9 +8,7 @@ import org.springframework.http.HttpStatus;
 
 import java.util.Arrays;
 @Getter
-@Setter
 @AllArgsConstructor
-@NoArgsConstructor
 /*
 ErrorCode 150 = Error converting response to object
 Other error code is the same code used in the api The Movie DB. https://www.themoviedb.org/documentation/api/status-codes

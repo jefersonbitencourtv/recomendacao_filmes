@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import java.util.Arrays;
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
-
 public enum OpenWeatherMapEnum {
     ERROR_KEY_API("Key OpenWeatherMap error, Contact the administrator", HttpStatus.UNAUTHORIZED, 1),
     CITY_NOT_FOUND("City not found. City example: Porto Alegre", HttpStatus.NOT_FOUND, 2),

@@ -5,12 +5,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 
 @Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ApiModel(description = "Temperature details")
 @Builder
-@ToString
 public class MainDTO {
     @ApiModelProperty(value="City Temperature", required = true)
     private Integer temp;

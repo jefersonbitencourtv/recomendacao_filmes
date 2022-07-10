@@ -34,42 +34,43 @@ public class OpenWeatherMapServiceImplTest {
     private String api_key = "af5dc93d6fed25c222420cec68f10ed4";
 
     @Test
-    public void getTempCelsius() throws JsonProcessingException {
+    public void getTempCelsiusTest() throws JsonProcessingException {
         String city = "Porto Alegre";
-
+        //Builder object mocks
         MainDTO mainDTO = MainDTO.builder().temp(5).build();
         OpenWeatherMapDTO openWeatherMapDTO = OpenWeatherMapDTO.builder().main(mainDTO).build();
 
-        //Objeto da request
+        //Request object
         String json = "(main=(MainDTO(temp=5))";
-        byte[] data = SerializationUtils.serialize("ts");
+        byte[] data = SerializationUtils.serialize("test");
         Map<String, Collection<String>> headers = new HashMap<>();
         Request request = Request.create(Request.HttpMethod.GET, "www.google.com.br", headers, data, StandardCharsets.UTF_8);
-        //Objeto da response
+        //Response object
         Response response = Response.builder().status(200).body(json, StandardCharsets.UTF_8).request(request).build();
 
         Mockito.when(openWeatherMapClient.getTempByApi(city, api_key, "metric")).thenReturn(response);
         Mockito.when(mapper.readValue(json, OpenWeatherMapDTO.class)).thenReturn(openWeatherMapDTO);
 
-        Integer temp = openWeatherMapServiceImpl.getTempCelsius(city);
-        Integer number = 5;
-        Assert.assertEquals(temp, number);
+        Integer returnMethod = openWeatherMapServiceImpl.getTempCelsius(city);
+        Integer expected = 5;
+        Assert.assertEquals(expected, returnMethod);
     }
 
     @Test
-    public void getTempCelsiusStatusDif200() throws OpenWeatherMapException, JsonProcessingException {
-        String message = "OpenWeatherMap error, contact the administrator, save the error code";
+    public void getTempCelsiusStatusDif200Test() throws OpenWeatherMapException, JsonProcessingException {
+        String expected = "OpenWeatherMap error, contact the administrator, save the error code";
         String city = "Porto Alegre";
 
+        //Builder object mocks
         MainDTO mainDTO = MainDTO.builder().temp(5).build();
         OpenWeatherMapDTO openWeatherMapDTO = OpenWeatherMapDTO.builder().main(mainDTO).build();
 
-        //Objeto da request
+        //Object request
         String json = "(main=(MainDTO(temp=5))";
         byte[] data = SerializationUtils.serialize("ts");
         Map<String, Collection<String>> headers = new HashMap<>();
         Request request = Request.create(Request.HttpMethod.GET, "www.google.com.br", headers, data, StandardCharsets.UTF_8);
-        //Objeto da response
+        //Object response
         Response response = Response.builder().status(500).body(json, StandardCharsets.UTF_8).request(request).build();
 
         Mockito.when(openWeatherMapClient.getTempByApi(city, api_key, "metric")).thenReturn(response);
@@ -77,24 +78,22 @@ public class OpenWeatherMapServiceImplTest {
 
         try {
             openWeatherMapServiceImpl.getTempCelsius(city);
-        } catch (OpenWeatherMapException e) {
-            Assert.assertEquals(e.getMessage(), message);
+        } catch (OpenWeatherMapException methodReturn) {
+            Assert.assertEquals(methodReturn.getMessage(), expected);
         }
     }
 
     @Test
-    public void getTempCelsiusStatus_2() throws OpenWeatherMapException, JsonProcessingException {
+    public void getTempCelsiusObjectMapperExceptionTest() throws OpenWeatherMapException, JsonProcessingException {
         String city = "Porto Alegre";
-        String message = "Contact the administrator, save the error code";
-        MainDTO mainDTO = MainDTO.builder().temp(5).build();
-        OpenWeatherMapDTO openWeatherMapDTO = OpenWeatherMapDTO.builder().main(mainDTO).build();
+        String expected = "Contact the administrator, save the error code";
 
-        //Objeto da request
+        //Object request
         String json = "(main=(MainDTO(temp=5))";
         byte[] data = SerializationUtils.serialize("ts");
         Map<String, Collection<String>> headers = new HashMap<>();
         Request request = Request.create(Request.HttpMethod.GET, "www.google.com.br", headers, data, StandardCharsets.UTF_8);
-        //Objeto da response
+        //Object response
         Response response = Response.builder().status(200).body(json, StandardCharsets.UTF_8).request(request).build();
 
         Mockito.when(openWeatherMapClient.getTempByApi(city, api_key, "metric")).thenReturn(response);
@@ -102,8 +101,8 @@ public class OpenWeatherMapServiceImplTest {
 
         try {
             openWeatherMapServiceImpl.getTempCelsius(city);
-        } catch (OpenWeatherMapException e) {
-            Assert.assertEquals(e.getMessage(), message);
+        } catch (OpenWeatherMapException methodReturn) {
+            Assert.assertEquals(methodReturn.getMessage(), expected);
         }
     }
 }

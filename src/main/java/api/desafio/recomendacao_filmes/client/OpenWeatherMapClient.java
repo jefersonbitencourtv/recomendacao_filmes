@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(url="${apiopenweathermap.url}", name="OpenWeatherMapController")
 public interface OpenWeatherMapClient {
     @GetMapping
-    Response getTempByApi(@RequestParam("q") String cityName, @RequestParam("appid") String apy_key, @RequestParam("units") String medida);
+    Response getTempByApi(@RequestParam("q") String cityName, @RequestParam("appid") String api_key, @RequestParam("units") String measure);
 
 }

@@ -27,39 +27,48 @@ public class RecommendationsServiceImplTest {
     @Test
     public void getByReleaseDateTest(){
         Integer temp = 5;
-        Mockito.when(openWeatherMapService.getTempCelsius("Porto Alegre")).thenReturn(temp);
 
+        //Builder object mocks
         MovieDTO movieDTO = MovieDTO.builder().original_title("Filme1").vote_average(5.0).build();
-        MoviesByGenreDTO moviesByGenreDTO = MoviesByGenreDTO.builder().results(Arrays.asList(movieDTO)).build();
-        Mockito.when(theMovieDbService.getMoviesByGenreSortByReleaseDate(MovieGenre.get(temp))).thenReturn(moviesByGenreDTO);
-        MoviesByGenreDTO moviesByGenreDTO1 = recommendationsService.getByReleaseDate("Porto Alegre");
+        MoviesByGenreDTO expected = MoviesByGenreDTO.builder().results(Arrays.asList(movieDTO)).build();
 
-        Assert.assertEquals(moviesByGenreDTO, moviesByGenreDTO1);
+        Mockito.when(openWeatherMapService.getTempCelsius("Porto Alegre")).thenReturn(temp);
+        Mockito.when(theMovieDbService.getMoviesByGenreSortByReleaseDate(MovieGenre.get(temp))).thenReturn(expected);
+
+        MoviesByGenreDTO methodReturn = recommendationsService.getByReleaseDate("Porto Alegre");
+
+        Assert.assertEquals(expected, methodReturn);
     }
 
     @Test
     public void getByVoteAverage(){
         Integer temp = 5;
-        Mockito.when(openWeatherMapService.getTempCelsius("Porto Alegre")).thenReturn(temp);
 
+        //Builder object mocks
         MovieDTO movieDTO = MovieDTO.builder().original_title("Filme1").vote_average(5.0).build();
-        MoviesByGenreDTO moviesByGenreDTO = MoviesByGenreDTO.builder().results(Arrays.asList(movieDTO)).build();
-        Mockito.when(theMovieDbService.getMoviesByGenreSortByVoteAverage(MovieGenre.get(temp))).thenReturn(moviesByGenreDTO);
-        MoviesByGenreDTO moviesByGenreDTO1 = recommendationsService.getByVoteAverage("Porto Alegre");
+        MoviesByGenreDTO expected = MoviesByGenreDTO.builder().results(Arrays.asList(movieDTO)).build();
 
-        Assert.assertEquals(moviesByGenreDTO, moviesByGenreDTO1);
+        Mockito.when(openWeatherMapService.getTempCelsius("Porto Alegre")).thenReturn(temp);
+        Mockito.when(theMovieDbService.getMoviesByGenreSortByVoteAverage(MovieGenre.get(temp))).thenReturn(expected);
+
+        MoviesByGenreDTO methodReturn = recommendationsService.getByVoteAverage("Porto Alegre");
+
+        Assert.assertEquals(expected, methodReturn);
     }
 
     @Test
     public void getByPopularity(){
         Integer temp = 5;
-        Mockito.when(openWeatherMapService.getTempCelsius("Porto Alegre")).thenReturn(temp);
 
+        //Builder object mocks
         MovieDTO movieDTO = MovieDTO.builder().original_title("Filme1").vote_average(5.0).build();
-        MoviesByGenreDTO moviesByGenreDTO = MoviesByGenreDTO.builder().results(Arrays.asList(movieDTO)).build();
-        Mockito.when(theMovieDbService.getMoviesByGenreSortByPopularity(MovieGenre.get(temp))).thenReturn(moviesByGenreDTO);
-        MoviesByGenreDTO moviesByGenreDTO1 = recommendationsService.getByPopularity("Porto Alegre");
+        MoviesByGenreDTO expected = MoviesByGenreDTO.builder().results(Arrays.asList(movieDTO)).build();
 
-        Assert.assertEquals(moviesByGenreDTO, moviesByGenreDTO1);
+        Mockito.when(openWeatherMapService.getTempCelsius("Porto Alegre")).thenReturn(temp);
+        Mockito.when(theMovieDbService.getMoviesByGenreSortByPopularity(MovieGenre.get(temp))).thenReturn(expected);
+
+        MoviesByGenreDTO methodReturn = recommendationsService.getByPopularity("Porto Alegre");
+
+        Assert.assertEquals(expected, methodReturn);
     }
 }

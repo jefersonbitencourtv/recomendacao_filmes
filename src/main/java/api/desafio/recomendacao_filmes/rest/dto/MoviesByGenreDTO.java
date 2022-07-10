@@ -6,11 +6,9 @@ import lombok.*;
 
 import java.util.List;
 @Getter
-@Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-@ToString
 @ApiModel(description = "List movies by genre")
 public class MoviesByGenreDTO {
     @ApiModelProperty(value="Movies list", required = true)
