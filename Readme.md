@@ -29,7 +29,7 @@ You can access project again, execute to start a container:
 
 ----------------------------------------------------------------
 
-**Operation api:
+<h2>Operation api</h2>
 
 Recommendations controller:
 
