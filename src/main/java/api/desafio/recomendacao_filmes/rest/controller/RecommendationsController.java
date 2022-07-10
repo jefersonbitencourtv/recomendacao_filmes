@@ -2,10 +2,7 @@ package api.desafio.recomendacao_filmes.rest.controller;
 
 import api.desafio.recomendacao_filmes.rest.dto.MoviesByGenreDTO;
 import api.desafio.recomendacao_filmes.service.implementation.RecommendationsServiceImpl;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -50,21 +47,21 @@ public class RecommendationsController {
     @ApiOperation(value="Search movies by popularity")
     @GetMapping("popularity")
     @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByPopularity(@RequestParam("city") String city) {
+    public MoviesByGenreDTO getByPopularity(@ApiParam("City name") @RequestParam("city") String city) {
         return recommendationsServiceImpl.getByPopularity(city);
     }
 
     @ApiOperation(value="Search movies by release date")
     @GetMapping("release_date")
     @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByReleaseDate(@RequestParam("city") String city) {
+    public MoviesByGenreDTO getByReleaseDate(@ApiParam("City name") @RequestParam("city") String city) {
         return recommendationsServiceImpl.getByReleaseDate(city);
     }
 
     @ApiOperation(value="Search movies by vote average")
     @GetMapping("vote_average")
     @ResponseStatus(HttpStatus.OK)
-    public MoviesByGenreDTO getByVoteAverage(@RequestParam("city") String city) {
+    public MoviesByGenreDTO getByVoteAverage(@ApiParam("City name") @RequestParam("city") String city) {
         return recommendationsServiceImpl.getByVoteAverage(city);
     }
 }
