@@ -38,6 +38,7 @@ Recommendations controller:
 </br>/vote_average         type: GET -- Provide city name, return a list of vote average movies
 
 <h2>Film genre by temperature</h2>
+</br>Metric is Celsius
 </br>The temperature is above 40 degrees, genre is action.
 </br>The temperature is between 36 and 40 degrees, genre is comedy.
 </br>The temperature is between 20 and 35 degrees, genre is animation.
