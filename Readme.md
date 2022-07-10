@@ -38,11 +38,11 @@ Recommendations controller:
 </br>/vote_average         type: GET -- Provide city name, return a list of vote average movies
 
 <h2>Desafio</h2>
-Eu gostaria de sugestões de filmes em cartaz baseado em meu ânimo.
-Meu ânimo varia conforme a temperatura atual de onde estou. Sendo que se:
-A temperatura está acima de 40 graus, nesse caso eu gosto de ver filmes de ação.
-A temperatura está entre 36 e 40 graus, está bem quente e eu prefiro ver filmes de comédia.
-A temperatura está entre 20 e 35 graus, está agradável e assim eu prefiro ver animações.
-A temperatura está entre 0 e 20 graus, está frio e eu gostaria de ver filmes de suspense.
-A temperatura está abaixo de 0 grau, está um frio glacial e, nesse caso, a melhor opção seriam documentários.
-Quero uma API RESTful (Java) que me dê essas sugestões de filmes e um guia de como utilizar essa API (Readme.md).
+</br>Eu gostaria de sugestões de filmes em cartaz baseado em meu ânimo.
+</br>Meu ânimo varia conforme a temperatura atual de onde estou. Sendo que se:
+</br>A temperatura está acima de 40 graus, nesse caso eu gosto de ver filmes de ação.
+</br>A temperatura está entre 36 e 40 graus, está bem quente e eu prefiro ver filmes de comédia.
+</br>A temperatura está entre 20 e 35 graus, está agradável e assim eu prefiro ver animações.
+</br>A temperatura está entre 0 e 20 graus, está frio e eu gostaria de ver filmes de suspense.
+</br>A temperatura está abaixo de 0 grau, está um frio glacial e, nesse caso, a melhor opção seriam documentários.
+</br>Quero uma API RESTful (Java) que me dê essas sugestões de filmes e um guia de como utilizar essa API (Readme.md).
