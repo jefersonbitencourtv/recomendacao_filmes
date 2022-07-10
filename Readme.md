@@ -33,6 +33,6 @@ You can access project again, execute to start a container:
 
 Recommendations controller:
 
-</br>/popularity           GET -- Provide city name, return a list of popularity movies
-</br>/release_date         GET -- Provide city name, return a list of release date movies
-</br>/vote_average         GET -- Provide city name, return a list of vote average movies
+</br>/popularity           type: GET -- Provide city name, return a list of popularity movies
+</br>/release_date         type: GET -- Provide city name, return a list of release date movies
+</br>/vote_average         type: GET -- Provide city name, return a list of vote average movies
